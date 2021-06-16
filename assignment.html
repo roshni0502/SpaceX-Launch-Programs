@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="fetch.css">
+    <title>SpaceX Launch Programs</title>
+</head>
+<body onload="first_time();">
+<div class="container" >
+  <div class="row" >
+
+  <p id="title">SpaceX Launch Programs</p>
+   <div id="flex" >
+    <div class="column"  >
+	    <div class="filter">
+       <p id="heading">Filters</p>
+      <center>
+       <p class="all">Launch Year</p>	
+        </center>
+      <center>
+       <div class="button_container">
+         <button class="buttons right_button"  value="2006" type="submit" name="year" >2006</button>
+         <button class="buttons" value="2007" name="year" type="submit">2007</button>
+       </div>
+       <div class="button_container">
+         <button class="buttons right_button" value="2008" name="year" type="submit" >2008</button>
+         <button class="buttons" value="2009" name="year" type="submit">2009</button>
+       </div>
+       <div class="button_container">
+         <button class="buttons right_button" value="2010"  name="year" type="submit" >2010</button>
+         <button class="buttons" value="2011" name="year" type="submit">2011</button>
+       </div>
+       <div class="button_container">
+         <button class="buttons right_button" value="2012" name="year" type="submit" >2012</button>
+         <button class="buttons" value="2013" name="year" type="submit">2013</button>
+       </div>
+       <div class="button_container">
+         <button class="buttons right_button" value="2014" name="year" type="submit" >2014</button>
+         <button class="buttons" value="2015" name="year" type="submit">2015</button>
+       </div>
+       <div class="button_container">
+         <button class="buttons right_button" value="2016" name="year" type="submit" >2016</button>
+         <button class="buttons" value="2017"  name="year" type="submit">2017</button>
+       </div>
+        <div class="button_container">
+         <button class="buttons right_button" value="2018" name="year" type="submit" >2018</button>
+         <button class="buttons" value="2019" name="year" type="submit">2019</button>
+       </div>
+        <div class="button_container">
+         <button class="buttons" value="2020"  name="year" type="submit" >2020</button>
+         
+       </div>
+       <div class="below_1">
+        <center>
+       <p class="all">Successful Launch</p> 
+        </center>
+      <center>
+        <div class="button_container">
+
+         <button class="buttons right_button"  name="launch" type="submit" id ="launch_success" value="true">True</button>
+         <button class="buttons" name="launch" type="submit" value="false">False</button>
+       </div>
+     </center>
+      </div>
+      <div class="below_2">
+        <center>
+
+       <p class="all">Successful Landing</p> 
+        </center>
+      <center>
+        <div class="button_container">
+
+         <button class="buttons right_button" name="landing" value ="true" type="submit" >True</button>
+         <button class="buttons" name="landing" value="false" type="submit">False</button>
+       </div>
+     </center>
+      </div>
+	    </div>
+   </div>
+    <div id='content' >
+    </div>
+  
+    </div>
+    </div>
+   </div>
+  </div>
+   </div>
+</div>
+<div  class="name">
+       <span style="font-weight: bold;"> Developed by</span> : <span >
+       {Roshni Gupta}</span>
+      </div>
+</body>
+<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+
+function first_time(){
+	url= "https://api.spaceXdata.com/v3/launches?limit=100";
+	fetch(url).then((response)=>{
+		return response.json();
+
+	}).then((data)=>{
+		
+	   
+   
+   	for (var i=0; i < data.length; i++){
+   		var content =document.getElementById('content')
+   		var row =  '<div class="column"  >' +
+                  '<div class="container1">' +
+                  '<div class="img">'+
+                    '<img class="images" src =" ' +
+                      data[i].links.mission_patch_small + 
+                     '" >' +
+                  '</div>' +
+                 '<div class="info">' +
+                    '<p id="mission_name"  >'+
+                    data[i].mission_name + " " +'#'+ data[i].flight_number +
+                     '</p>' +
+                    '<p id="mission_id" >Mission Ids:</p>' +
+                     '<p id="missionidname" > <span id="insidemissionidname">.</  span> '+
+                         data[i].mission_id +
+                       '</p> ' + 
+                     '<p class="launchyear extra" >Launch Year: <span style="color: cornflowerblue;">'+
+                       data[i].launch_year +
+                       '</span></p>' +
+           
+                     '<p class="launchyear extra">Successful Launch: <span span style="color: cornflowerblue;"> '+
+                       data[i].launch_success +
+                       '</span></p>' +
+                     '<div style="display: flex">' +
+                      '<p class="launchyear width " id="width">Successful Landing</p>'+
+                      '<p class="launchyear color">'+
+                         data[i].rocket.first_stage.cores[0].land_success +
+                       '</p>'+
+                     '</div>' +
+                ' </div>' +
+                 '</div>' 
+
+       content.innerHTML += row 
+   	}
+
+	})
+}
+  $("[name=year]").on("click",function(e){
+        e.preventDefault();
+   
+     var value = $(this).attr('value');
+     
+     url= "https://api.spaceXdata.com/v3/launches?limit=100";
+  fetch(url).then((response)=>{
+    return response.json();
+
+  }).then((data)=>{
+    var content =document.getElementById('content');
+      content.innerHTML = " " ;
+    for (var i=0; i < data.length; i++){
+      
+      if( data[i].launch_year == value){    
+       var row =  '<div class="column"  >' +
+                  '<div class="container1">' +
+                  '<div class="img">'+
+                    '<img class="images" src =" ' +
+                      data[i].links.mission_patch_small + 
+                     '" >' +
+                  '</div>' +
+                 '<div class="info">' +
+                    '<p id="mission_name"  >'+
+                    data[i].mission_name + " " +'#'+ data[i].flight_number +
+                     '</p>' +
+                    '<p id="mission_id" >Mission Ids:</p>' +
+                     '<p id="missionidname" > <span id="insidemissionidname">.</  span> '+
+                         data[i].mission_id +
+                       '</p> ' + 
+                     '<p class="launchyear extra" >Launch Year: <span style="color: cornflowerblue;">'+
+                       data[i].launch_year +
+                       '</span></p>' +
+           
+                     '<p class="launchyear extra">Successful Launch: <span span style="color: cornflowerblue;"> '+
+                       data[i].launch_success +
+                       '</span></p>' +
+                     '<div style="display: flex">' +
+                      '<p class="launchyear width " id="width">Successful Landing</p>'+
+                      '<p class="launchyear color">'+
+                         data[i].rocket.first_stage.cores[0].land_success +
+                       '</p>'+
+                     '</div>' +
+                ' </div>' +
+                 '</div>' 
+          content.innerHTML += row 
+      }
+    }
+
+  }) 
+});
+
+ $("[name=launch]").on("click",function(e){
+        e.preventDefault();
+   
+     var value = $(this).attr('value');
+    
+     url= "https://api.spaceXdata.com/v3/launches?limit=100";
+  fetch(url).then((response)=>{
+    return response.json();
+
+  }).then((data)=>{
+    
+    var content =document.getElementById('content');
+      content.innerHTML = " " ;
+
+     
+   
+    for (var i=0; i < data.length; i++){
+     
+      if(value.localeCompare( data[i].launch_success)== 0){
+      var row =  '<div class="column"  >' +
+                  '<div class="container1">' +
+                  '<div class="img">'+
+                    '<img class="images" src =" ' +
+                      data[i].links.mission_patch_small + 
+                     '" >' +
+                  '</div>' +
+                 '<div class="info">' +
+                    '<p id="mission_name"  >'+
+                    data[i].mission_name + " " +'#'+ data[i].flight_number +
+                     '</p>' +
+                    '<p id="mission_id" >Mission Ids:</p>' +
+                     '<p id="missionidname" > <span id="insidemissionidname">.</  span> '+
+                         data[i].mission_id +
+                       '</p> ' + 
+                     '<p class="launchyear extra" >Launch Year: <span style="color: cornflowerblue;">'+
+                       data[i].launch_year +
+                       '</span></p>' +
+           
+                     '<p class="launchyear extra">Successful Launch: <span span style="color: cornflowerblue;"> '+
+                       data[i].launch_success +
+                       '</span></p>' +
+                     '<div style="display: flex">' +
+                      '<p class="launchyear width " id="width">Successful Landing</p>'+
+                      '<p class="launchyear color">'+
+                         data[i].rocket.first_stage.cores[0].land_success +
+                       '</p>'+
+                     '</div>' +
+                ' </div>' +
+                 '</div>' 
+      
+       content.innerHTML += row 
+
+      }
+      
+
+    }
+
+  })
+  
+});
+ 
+ $("[name=landing]").on("click",function(e){
+        e.preventDefault();
+   
+     var value = $(this).attr('value');
+     
+     url= "https://api.spaceXdata.com/v3/launches?limit=100";
+  fetch(url).then((response)=>{
+    return response.json();
+
+  }).then((data)=>{
+    var content =document.getElementById('content');
+      content.innerHTML = " " ;
+    for (var i=0; i < data.length; i++){
+      
+      if(value.localeCompare(data[i].rocket.first_stage.cores[0].land_success)== 0){
+      
+      var row =  '<div class="column"  >' +
+                  '<div class="container1">' +
+                  '<div class="img">'+
+                    '<img class="images" src =" ' +
+                      data[i].links.mission_patch_small + 
+                     '" >' +
+                  '</div>' +
+                 '<div class="info">' +
+                    '<p id="mission_name"  >'+
+                    data[i].mission_name + " " +'#'+ data[i].flight_number +
+                     '</p>' +
+                    '<p id="mission_id" >Mission Ids:</p>' +
+                     '<p id="missionidname" > <span id="insidemissionidname">.</  span> '+
+                         data[i].mission_id +
+                       '</p> ' + 
+                     '<p class="launchyear extra" >Launch Year: <span style="color: cornflowerblue;">'+
+                       data[i].launch_year +
+                       '</span></p>' +
+           
+                     '<p class="launchyear extra">Successful Launch: <span span style="color: cornflowerblue;"> '+
+                       data[i].launch_success +
+                       '</span></p>' +
+                     '<div style="display: flex">' +
+                      '<p class="launchyear width " id="width">Successful Landing</p>'+
+                      '<p class="launchyear color">'+
+                         data[i].rocket.first_stage.cores[0].land_success +
+                       '</p>'+
+                     '</div>' +
+                ' </div>' +
+                 '</div>' 
+      
+       content.innerHTML += row 
+
+      }
+    }
+
+  })
+});
+</script>
+</html>
