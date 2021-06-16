@@ -1,0 +1,330 @@
+*{
+	margin:0;
+	padding: 0;
+}
+body{
+	background-color: gainsboro;
+}
+
+.filter{
+	background-color: white;
+	margin: 5px;
+	border-radius: 3px;
+	margin-left: 8px;
+}
+.column{
+	width:300px;
+}
+.buttons{
+	background-color: lightgreen;
+	border: 1px solid lightgreen;
+	border-radius: 4px;
+	width: 75px;
+	padding: 4px;
+	font-size: 10px;
+}
+.buttons:hover{
+	background: green;
+}
+.buttons:focus{
+	background: green;
+}
+.container1{
+	background: white;
+	height: 287px;
+	margin-top: 5px;
+	border-radius: 3px;
+	margin-left: 10px;
+	padding:20px;
+	float: left;
+	max-width: 300px;
+	height: auto;
+}
+.img{
+	width: 95%;
+	height: 50%;
+	background-color: gainsboro;
+}
+.info{
+	width: 95%;
+	height: 50%;
+	margin-top: 10px;
+}
+#content{
+	width: 1200px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.images{
+	width: 95%;
+	height: 100%;
+
+}
+#title{
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 2px;
+	font-size: 20px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+#flex{
+	display: flex;
+}
+
+#heading{
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 5px;
+	padding-top: 5px;
+	font-size: 15px;
+}
+.all{
+	color: black;
+	text-align:center;
+	padding-top: 3px;
+	font-size: 13px;
+	border-bottom: 2px solid gray;width: 175px;
+}
+.button_container{
+	width: 200px;
+	margin-top: 10px;
+	text-align: left;
+}
+.right_button{
+	margin-right: 45px;
+}
+.below_2{
+	margin-top: 15px;
+	padding-bottom: 30px;
+}	
+.below_1{
+	margin-top: 15px;
+}
+#mission_name{
+	color: steelblue;
+	font-weight: bold;
+	margin-right: 90px;
+	margin-left: 10px;
+}	
+#mission_id{
+	font-weight: bold;
+	margin-top: 4px;
+	margin-left: 10px;
+}
+#missionidname{
+	color: cornflowerblue;
+	margin-left: 10px;
+	font-size:10px;
+}
+#insidemissionidname{
+	font-weight: bold;
+	font-size: 15px;
+}
+.launchyear{
+	
+	font-weight: bold;
+	margin-top: 4px;
+	margin-left: 10px;
+}
+.color{
+	color: cornflowerblue;
+	margin-left: 90px;
+}
+#width{
+	width: 20px;
+}
+.name{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	font-size: 20px;
+}	
+@media (min-width : 360px) and (max-width: 700px){
+	#title{
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 2px;
+	font-size: 25px;
+	margin-left: 30px;
+	margin-top: 5px;
+	width: 50%;
+}	
+.column{
+	width:70%;
+}
+.filter{
+	background-color: white;
+	border-radius: 3px;
+	margin-left: 8px;
+	width: 300px;
+	margin-left: 30px;
+}
+#flex{
+	display: block;
+}
+.container1{
+	background: white;
+	height: 300px;
+	margin-top: 5px;
+	border-radius: 3px;
+	margin-left: 30px;
+	padding:20px;
+	float: left;
+	max-width: 300px;
+}
+.buttons{
+	background-color: lightgreen;
+	border: 1px solid lightgreen;
+	border-radius: 4px;
+	width: 75px;
+	height: 30px;
+	padding: 4px;
+	font-size: 13px;
+}
+.images{
+	width: 95%;
+	height: 100%;
+	
+	
+}
+}
+
+@media (max-width: 1024px) and (min-width : 768px) {
+  .column{
+	width:100px;
+}
+#title{
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 2px;
+	font-size: 10px;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+.filter{
+	background-color: white;
+	border-radius: 3px;
+	margin-left: 5px;
+	width: 100px;
+}
+.buttons{
+	background-color: lightgreen;
+	border: 1px solid lightgreen;
+	border-radius: 2px;
+	width: 30px;
+	height: 10px;
+	padding: 2px;
+	font-size: 5px;
+}
+#heading{
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 3px;
+	padding-top: 5px;
+	font-size: 10px;
+}
+.all{
+	color: black;
+	text-align:center;
+	padding-top: 3px;
+	font-size: 8px;
+	border-bottom: 1px solid gray;
+	width: 70px;
+}
+.button_container{
+	margin-left: 10px;
+	margin-top: -3px;
+}
+.right_button{
+	margin-right: 10px;
+}
+.below_2{
+	margin-top: 5px;
+	padding-bottom: 15px;
+}	
+.below_1{
+	margin-top: 5px;
+}
+.container1{
+	background: white;
+	height: 150px;
+	margin-top: 5px;
+	border-radius: 3px;
+	margin-left: 10px;
+	padding:5px;
+	float: left;
+	width: 110px;
+	padding-bottom: 10px;
+}
+#content{
+	max-width: 100px;
+}
+.info{
+	width: 50%;
+	height: 100%;
+	margin-top: 5px;
+}
+.images{
+	width: 100%;
+	height: 100%;
+}
+#mission_name{
+	color: steelblue;
+	font-weight: bold;
+	font-size: 7px;
+	margin-left: 0px;
+	display: flex;
+	clear:both;
+	display:inline:block;
+	white-space:nowrap;
+}
+#mission_id{
+	font-weight: bold;
+	margin-top: 4px;
+	font-size: 7px;
+	margin-left: 0px;
+}
+#missionidname{
+	color: cornflowerblue;
+	font-size:7px;
+}
+#insidemissionidname{
+	font-weight: bold;
+	font-size: 7px;
+}		
+.launchyear{
+	
+	font-weight: bold;
+	margin-top: 2px;
+	font-size: 7px;
+	margin-left: 0px;
+}
+.color{
+	color: cornflowerblue;
+	margin-left: 30px;
+}
+#width{
+	width: 100%;
+}
+.extra{
+	clear:both;
+	display:inline:block;
+	white-space:nowrap;
+}
+.name{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 10px;
+	margin-right: 430px;
+}		
+		
+}
+
