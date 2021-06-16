@@ -176,6 +176,7 @@ body{
 	padding:20px;
 	float: left;
 	max-width: 300px;
+	height:auto;
 }
 .buttons{
 	background-color: lightgreen;
